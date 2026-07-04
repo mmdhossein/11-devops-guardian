@@ -89,7 +89,7 @@ kubernetes:
 risk_level: low
 
 ### 4. Set Environment Variables (Optional)
-If you're connecting to real infrastructure, configure:
+If you are connecting to real infrastructure, configure:
 
 bash
 export KUBECONFIG=/path/to/kubeconfig
