@@ -1,0 +1,102 @@
+# DevOps Guardian Permission Policy
+# Format: action -> role -> approval_required
+
+roles:
+  supervisor:
+    description: "Full access with approval authority"
+    can_approve: true
+    
+  engineer:
+    description: "Standard DevOps engineer"
+    can_approve: false
+    
+  viewer:
+    description: "Read-only access"
+    can_approve: false
+
+permissions:
+  # Kubernetes operations
+  kubernetes:
+    get_pods:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    get_logs:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    restart_pod:
+      allowed_roles: [supervisor, engineer]
+      risk_level: medium
+      requires_approval: true
+      
+    delete_pod:
+      allowed_roles: [supervisor]
+      risk_level: high
+      requires_approval: true
+      
+    scale_deployment:
+      allowed_roles: [supervisor, engineer]
+      risk_level: medium
+      requires_approval: true
+      
+    delete_deployment:
+      allowed_roles: [supervisor]
+      risk_level: high
+      requires_approval: true
+  
+  # ArgoCD operations
+  argocd:
+    list_applications:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    get_application:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    sync_application:
+      allowed_roles: [supervisor, engineer]
+      risk_level: medium
+      requires_approval: true
+      
+    rollback_application:
+      allowed_roles: [supervisor]
+      risk_level: high
+      requires_approval: true
+      
+    delete_application:
+      allowed_roles: [supervisor]
+      risk_level: high
+      requires_approval: true
+  
+  # Grafana operations
+  grafana:
+    view_dashboard:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    query_metrics:
+      allowed_roles: [supervisor, engineer, viewer]
+      risk_level: low
+      requires_approval: false
+      
+    create_alert:
+      allowed_roles: [supervisor, engineer]
+      risk_level: medium
+      requires_approval: false
+      
+    delete_alert:
+      allowed_roles: [supervisor, engineer]
+      risk_level: medium
+      requires_approval: true
+      
+    modify_datasource:
+      allowed_roles: [supervisor]
+      risk_level: high
+      requires_approval: true

@@ -1,0 +1,7 @@
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-openai>=0.2.0
+gradio>=4.0.0
+pyotp>=2.9.0
+pyyaml>=6.0
+qrcode>=7.4.0
