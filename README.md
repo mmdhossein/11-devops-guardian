@@ -57,6 +57,7 @@ Under the hood: **LangGraph** orchestrates the workflow, **SQLite** stores sessi
 ### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
+```
 
 ### 2. Set Up Database
 bash
