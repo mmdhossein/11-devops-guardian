@@ -111,7 +111,7 @@ Visit **http://localhost:7860** and login with `alice` or `bob` using their TOTP
 
 ## Project Structure
 
-
+```
 devops-guardian/
 ├── config/
 │   └── permissions.yaml          # Role-based access policies
@@ -130,8 +130,7 @@ devops-guardian/
 ├── database_setup.py             # Schema creation and seed data
 ├── app.py                        # Gradio UI
 └── README.md
-
----
+```
 
 ## Security Notes
 
